@@ -8,7 +8,7 @@ function App() {
 
   const [sushis, setSushis] = useState([]);
   const [beltPosition, setBeltPosition] = useState(0);
-
+  const [money, setMoney] = useState(100)
   const DISPLAY_COUNT = 4;
 
   useEffect(() => {
@@ -17,9 +17,12 @@ function App() {
     .then(data => setSushis(data))
   }, [])
 
-  function setEaten(id) {
+  function setEaten(piece) {
+
+    setMoney(money - piece.price)
+
     setSushis(sushis.map((sushi) => 
-      sushi.id === id ? {...sushi, eaten: true} : sushi
+      sushi.id === piece.id ? {...sushi, eaten: true} : sushi
       )
     )
   }
@@ -35,7 +38,7 @@ function App() {
         handleMoreClick={advanceBelt}
         handleEatSushi={setEaten}
       />
-      <Table plates={ sushis.filter(sushi => sushi.eaten) }/>
+      <Table plates={ sushis.filter(sushi => sushi.eaten) } money={money}/>
     </div>
   );
 }

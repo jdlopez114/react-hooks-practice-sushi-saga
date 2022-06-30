@@ -2,11 +2,11 @@ import React from "react";
 
 function Sushi( { sushi, handleEatSushi } ) {
 // destructure here
-const { id, name, img_url, price, eaten } = sushi
+const { name, img_url, price, eaten } = sushi
 
   return (
     <div className="sushi">
-      <div className="plate" onClick={() => handleEatSushi(id)}>
+      <div className="plate" onClick={() => handleEatSushi(sushi)}>
         
         {eaten ? ' ' : (
           <img
