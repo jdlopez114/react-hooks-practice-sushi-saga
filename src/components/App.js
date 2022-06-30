@@ -19,12 +19,16 @@ function App() {
 
   function setEaten(piece) {
 
-    setMoney(money - piece.price)
+    const remainingMoney = money - piece.price
 
-    setSushis(sushis.map((sushi) => 
-      sushi.id === piece.id ? {...sushi, eaten: true} : sushi
-      )
-    )
+    if (remainingMoney >= 0) {
+      setMoney(remainingMoney)
+
+      setSushis(sushis.map((sushi) => 
+        sushi.id === piece.id ? {...sushi, eaten: true} : sushi
+        )
+     )
+    }
   }
   
   function advanceBelt() { 
