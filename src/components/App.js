@@ -35,7 +35,7 @@ function App() {
         handleMoreClick={advanceBelt}
         handleEatSushi={setEaten}
       />
-      <Table />
+      <Table plates={ sushis.filter(sushi => sushi.eaten) }/>
     </div>
   );
 }

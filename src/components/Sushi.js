@@ -8,7 +8,7 @@ const { id, name, img_url, price, eaten } = sushi
     <div className="sushi">
       <div className="plate" onClick={() => handleEatSushi(id)}>
         
-        {eaten ? null : (
+        {eaten ? ' ' : (
           <img
             src={img_url}
             alt={name}
